@@ -1,0 +1,61 @@
+도커 명령어
+
+도커 컨테이너 리스트 확인
+docker ps -a
+
+도커 컨테이너 정지
+docker stop 아이디
+
+도커 컨테이너 삭제
+docker rm 아이디
+
+도커 이미지 리스트 확인
+docker image ls
+
+도커 이미지 삭제
+docker image rm 아이디
+
+컨테이너 실행
+docker run --name apa000ex1 -d -p 8880:80 httpd
+
+컨테이너 정지
+docker stop apa000ex1
+
+컨테이너 재실행
+docker start apa000ex1
+
+문서 위치
+도커 데스크탑 -> 컨테이너 -> 파일 -> /usr/local/apache2/htdocs/index.html
+
+도커 파일 복사 (도커 데스크탑 -> 데스크탑)
+복사될 경로로 이동 후 -> docker cp apa000ex1:/usr/local/apache2/htdocs/index.html .
+
+도커 파일 복사 (데스크탑 -> 도커 데스크탑)
+복사할 파일이 있는 폴더로 이동 후 -> docker cp index.html apa000ex1:/usr/local/apache2/htdocs
+
+도커 Nginx 컨테이너 실행(p122)
+docker run --name nginx000ex6 -d -p 8084:80 nginx
+
+도커 MySQL 컨테이너 실행(p124)
+docker run --name mysql000ex7 -dit -e MYSQL_ROOT_PASSWORD=1234 mysql
+
+cmd에서 도커로 mysql 접속
+docker exec -it mysql000ex7 mysql -u root -p
+
+mysql 데이터베이스 확인
+show databases;
+
+mysql 데이터베이스 만들기
+create database tset123;
+
+mysql 테이블 만들기
+create table dept(deptno int(11), dname varchar(14), loc varchar(13));
+
+mysql 테이블 필드 확인
+desc dept;
+
+mysql 테이블에 객체 삽입
+insert into dept(deptno, dname, loc) values(10, 'Account', 'Seoul');
+
+mysql 테이블 확인
+select * from dept;
