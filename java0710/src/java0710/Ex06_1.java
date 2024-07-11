@@ -63,7 +63,7 @@ public class Ex06_1 {
 						System.out.println("없는 아이디 입니다.");
 					}
 					
-					//break;
+					break;
 				
 				case "2" : 
 					System.out.println("회원가입");
