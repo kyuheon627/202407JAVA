@@ -62,7 +62,6 @@ public class Ex06_1 {
 					}else {
 						System.out.println("없는 아이디 입니다.");
 					}
-					
 					break;
 				
 				case "2" : 
