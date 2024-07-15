@@ -9,6 +9,9 @@ docker stop 아이디
 도커 컨테이너 삭제
 docker rm 아이디
 
+도커 컨테이너 전체 삭제
+docker rm $(docker ps -aq)
+
 도커 이미지 리스트 확인
 docker image ls
 
