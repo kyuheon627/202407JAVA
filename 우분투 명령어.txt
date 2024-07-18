@@ -1,0 +1,28 @@
+매번 암호 적을 필요없이 만드는 코드
+1. vscode의 터미널에 ssh-keygen -t rsa -b 4096 작성
+2. vscode 파일에서 .ssh파일 안의 id_rsa 파일을 오른쪽 클릭 후 다운로드 
+3. C:\User\users\.ssh에 다운로드
+4. vscode의 config에 
+Host myserver01
+  HostName localhost
+  port 22
+  User user1
+  IdentityFile C:\Users\DU\.ssh\id_rsa
+작성
+5. vscode 파일에서 id_rsa.pub 파일의 내용 전부 복사 후 authorized_keys에 붙여넣기
+6. vscode 원격 연결 종료후 재실행
+7. 암호 입력없이 터미널 실행 확인
+
+업데이트 명령어
+sudo apt-get update
+
+에디터 다운로드  (net-tools, iputils-ping, nano vim, git, maven)
+sudo apt-get install net-tools iputils-ping nano vim git maven
+
+오픈 jdk 설치
+sudo apt install openjdk-17-jdk
+
+JAVAHOME path잡기
+1.vscode 파일에서 .bashrc 파일 열고 가장 마지막줄에 입력
+export JAVA_HOME="\usr\lib\jvm\java-17-openjdk-amd64"
+2. 터미널에 source ~/.bashrc 입력
