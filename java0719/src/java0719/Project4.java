@@ -33,7 +33,6 @@ public class Project4 extends JFrame{
 	JPanel jpCenter = new JPanel();
 	JPanel jpDown = new JPanel();
 	
-	
 	String strDept = "select * from dept";
 	String strEmp = "select * from emp";
 	
