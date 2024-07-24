@@ -1,4 +1,4 @@
-package swingJdbc;
+package project;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -10,27 +10,30 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalTime;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class ViewDept extends JFrame{
-	
+public class Project2 extends JFrame{
+
 	JTextField tf = new JTextField(20);
 	JButton bt = new JButton("조회");
 	JTextArea ta = new JTextArea(15, 40);
-	
+	JLabel jl = new JLabel("테스트");
+
 	String URL = "jdbc:mysql://localhost:3307/spring5fs";
 	Connection conn = null;
 	Statement stmt = null;
 	
 	JFrame jf;
-	public ViewDept() {
+	public Project2() {
 		jf = this;
 		
 		try {
@@ -41,7 +44,6 @@ public class ViewDept extends JFrame{
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-		
 
 		Container con = this.getContentPane();
 		con.setLayout(new BorderLayout());
@@ -94,6 +96,12 @@ public class ViewDept extends JFrame{
 		
 		jpCenter.add(ta);
 		
+//		하단 ------------------------------------------------------------
+		
+		JPanel jpDown = new JPanel(new FlowLayout());
+		con.add(jpDown, BorderLayout.SOUTH);
+		jpDown.add(jl);
+		
 //		----------------------------------------------------------------
 		
 		this.setTitle("view dept 테이블");
@@ -104,9 +112,19 @@ public class ViewDept extends JFrame{
 	}
 	
 	public static void main(String[] args) {
+
+		Project2 pro = new Project2();
 		
-		new ViewDept();
+		while(true) {
+			LocalTime localTime = LocalTime.now();
+			pro.jl.setText(String.format("%d:%d:%d\n", localTime.getHour(), localTime.getMinute(), localTime.getSecond()));
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		
 	}
-	
+
 }
