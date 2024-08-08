@@ -1,0 +1,7 @@
+도커 컨테이너에 oracle 만들기
+cmd에서 아래 명령어 작성
+docker search oracle
+
+docker pull oracleinanutshell/oracle-xe-11g
+
+docker run -d -p 1521:1521 oracleinanutshell/oracle-xe-11g

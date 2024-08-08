@@ -1,0 +1,6 @@
+오라클 11g 설치하기
+0. 구글 드라이브에서 zip 파일 다운로드 후 압축 풀기
+1. 오라클 설치 : OracleXE112_Win64\DISK1\setup.exe 클릭 -> 다 수락 및 다운로드 (이 때 입력하는 비밀번호가 system의 비밀번호. 보통 oracle로 통일.)
+2. sqldeveloper 위치 : sqldeveloper-20.4.1.407.0006-x64\sqldeveloper\sqldeveloper.exe
+3. 이후 cmd 창에서 sqlplus 입력하고 유저의 이름과 비밀번호를 묻는 란에 username: system, password: oracle 입력 후 create user scott identified by tiger; 명령어로 scott 계정 만들어주기 > grant connect, resource, dba to scott; 으로 scott 계정에 권한 부여하기 > commit; 으로 모든 변경사항 적용하기 > sqldeveloper를 켜서 새로운 계정으로 접속하기
+4. emp, dept 테이블이 있지 않으니 함께 첨부되어 있는 sql문 긁어 넣기~!
