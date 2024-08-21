@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="WebhardMapper">
+    <select id="selectAllWebhard" resultType="webhard.Webhard">
+        SELECT * FROM webhard
+    </select>
+
+	<select id="countProducts" parameterType="int" resultType="int">
+        SELECT stock FROM products WHERE id = #{id}
+    </select>
+
+    <select id="selectWebhardByNum" parameterType="int" resultType="webhard.Webhard">
+        select * from webhard where num = #{num}
+    </select>
+
+    <insert id="insertWebhard" parameterType="webhard.Webhard">
+        INSERT into webhard (fname, ftime, fsize) 
+        VALUES (#{fname}, #{ftime}, #{fsize})
+    </insert>
+
+    <update id="updateProduct" parameterType="webhard.Webhard">
+        UPDATE products
+        SET name = #{name}, description = #{description}, price = #{price}, stock = #{stock}
+        WHERE id = #{id}
+    </update>
+    
+    <update id="decreaseStock" parameterType="int">
+        UPDATE products
+        SET stock = stock - 1
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteWebhard" parameterType="int">
+       delete from webhard where num = #{num}
+    </delete>
+</mapper>
